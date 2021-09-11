@@ -13,6 +13,15 @@ type User {
     savedBooks: [Book]
   }
 
+type Book {
+    bookId: ID
+    authors: [String]
+    description: String
+    title: String
+    image: String
+    link: String
+}
+
 input Book {
     name: String
     description: String
