@@ -5,6 +5,14 @@ type Query {
     me: User
   }
 
+type User {
+    _id: ID
+    username: String
+    email: String
+    bookCount: Int
+    savedBooks: [Book]
+  }
+
 input Book {
     name: String
     description: String
