@@ -6,6 +6,10 @@ import Navbar from './components/Navbar';
 import { setContext } from '@apollo/client/link/context';
 import { ApolloProvider, ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client';
 
+const httpLink = createHttpLink({
+  uri: '/graphql'
+});
+
 const client = new ApolloClient({
   request: operation => {
     const token = localStorage.getItem('id_token');
