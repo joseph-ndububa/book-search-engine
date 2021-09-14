@@ -1,6 +1,6 @@
 const { AuthenticationError } = require('apollo-server-express');
 const { User } = require('../models');
-const { signToken, authMiddleware } = require('../utils/auth');
+const { signToken } = require('../utils/auth');
 
 const resolvers = {
     Query: {
@@ -22,7 +22,7 @@ const resolvers = {
             const user = await User.findOne({ email });
       
             if (!user) {
-              throw new AuthenticationError('Incorrect user');
+              throw new AuthenticationError('User does not exist');
             }
       
             const correctPw = await user.isCorrectPassword(password);
@@ -40,11 +40,11 @@ const resolvers = {
       
             return { token, user };
           },
-          saveBook: async (parent, { bookInfo }, context) => {
+          saveBook: async (parent, { input }, context) => {
             if (context.user) {
               const updatedUser = await User.findOneAndUpdate(
                 { _id: context.user._id },
-                { $push: { savedBooks: bookInfo } },
+                { $push: { savedBooks: input } },
                 { new: true },
               )
       
