@@ -22,7 +22,7 @@ Click [here](https://sleepy-citadel-75856.herokuapp.com/) to access the live app
 
 - From the save books page, click the delete button located below a book to remove it from your saved collection.
 
-- Use the logout located in the top right corner of the page to log out.
+- Use the logout button located in the top right corner of the page to log out.
 
 ![Screenshot](https://i.imgur.com/UdUF37l.jpg)
 
